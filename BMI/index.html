@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function calculateBMI() {
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value);
+
+            if (isNaN(weight) || isNaN(height)) {
+                alert("Please enter valid weight and height values.");
+                return;
+            }
+
+            if (weight <= 0 || height <= 0) {
+                alert("Weight and height values must be greater than zero.");
+                return;
+            }
+
+            var bmi = weight / (height * height);
+            bmi = bmi.toFixed(2); // Round BMI to two decimal places
+
+            document.getElementById("result").innerHTML = "Your BMI: " + bmi;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+
+    <label for="weight">Weight (in kg):</label>
+    <input type="text" id="weight" placeholder="Enter weight" />
+    <br>
+
+    <label for="height">Height (in meters):</label>
+    <input type="text" id="height" placeholder="Enter height" />
+    <br>
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div id="result"></div>
+</body>
+
+</html>
